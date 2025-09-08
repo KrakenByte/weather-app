@@ -1,7 +1,13 @@
+import "./normalize.scss"
 import "./main.scss";
-import { getUserLocation } from "./getLocation";
+import { getCurrentConditions } from "./model/weatherData";
+import { getUserLocation } from "./model/location";
 
-const API_KEY = "3SYE9J5YXHTWZ5TWZC4FW5UY9";
+async function init() {
+    const {lat, lon} = await getUserLocation();
+    const conditions = await getCurrentConditions(lat, lon);
+    console.log(`Weather for ${conditions.location.name}: `, conditions);
+}
 
 
-
+init();
