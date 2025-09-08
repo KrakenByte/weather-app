@@ -1,13 +1,11 @@
+// --- ENTRY POINT ---
 import "./normalize.scss"
 import "./main.scss";
-import { getCurrentConditions } from "./model/weatherData";
-import { getUserLocation } from "./model/location";
+import { init } from "./controller/appController";
+import { updateData } from "./view/weatherView";
 
-async function init() {
-    const {lat, lon} = await getUserLocation();
-    const conditions = await getCurrentConditions(lat, lon);
-    console.log(`Weather for ${conditions.location.name}: `, conditions);
+async function run() {
+    await init();
 }
 
-
-init();
+run();

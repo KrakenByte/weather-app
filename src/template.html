@@ -1,11 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather App</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather Now</title>
 </head>
 <body>
-  
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
+    <div id="loading-screen" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:999;background:rgba(255,255,255,0.85);display:flex;align-items:center;justify-content:center;">
+      <dotlottie-wc src="https://lottie.host/d17e2dda-a172-448d-9860-655b2148174f/4R3Ao9QVuk.lottie" style="width: 300px;height: 300px" speed="1" autoplay loop></dotlottie-wc>
+    </div>
+    <div class="header">
+      <div class="logo-group">
+        <img src="assets/logo.png" alt="Logo" class="logo" />
+        <h1 class="title">Weather Now</h1>
+      </div>
+      <form class="search-form" id="search-form">
+  <input type="text" class="search-input" id="search-input" placeholder="Enter city or coordinates" />
+        <button type="submit" class="search-button" id="search-button">
+          <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/search.svg" alt="Search" class="search-icon" />
+        </button>
+        <button type="button" class="geo-button" id="geo-button">
+          <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/geo-alt.svg" alt="Geo" class="geo-icon" />
+        </button>
+      </form>
+      <div class="unit-toggle">
+        <label for="unit-select">Units:</label>
+        <select id="unit-select">
+          <option value="metric" selected>Metric</option>
+          <option value="imperial">Imperial</option>
+        </select>
+      </div>
+    </div>
+
+  <div class="dashboard">
+    <div class="card main-widget" id="main-widget">
+      <div class="location-name" id="location-name">--</div>
+      <div class="temp" id="temperature">--°C</div>
+      <div class="description" id="description">--</div>
+      <img src="#" alt="Weather Icon" id="weather-icon" class="weather-icon" />
+    </div>
+
+    <div class="card" id="feelslike-card">
+      <h2>Feels Like</h2>
+      <p id="feelslike">--°C</p>
+    </div>
+
+    <div class="card" id="humidity-card">
+      <h2>Humidity</h2>
+      <p id="humidity">--%</p>
+    </div>
+
+    <div class="card" id="precip-card">
+      <h2>Precipitations</h2>
+      <p id="precip">-- mm</p>
+    </div>
+
+    <div class="card" id="wind-card">
+      <h2>Wind</h2>
+      <p id="wind-speed">-- m/s</p>
+      <p id="wind-direction">--</p>
+    </div>
+
+    <div class="card" id="pressure-card">
+      <h2>Pressure</h2>
+      <p id="pressure">-- hPa</p>
+    </div>
+
+    <div class="card" id="visibility-card">
+      <h2>Visibility</h2>
+      <p id="visibility">-- km</p>
+    </div>
+
+    <div class="card" id="lastupdated-card">
+      <h2>Last Updated</h2>
+      <p id="last-updated">--</p>
+    </div>
+
+    <div class="card" id="source-card">
+      <h2>Source</h2>
+      <p id="source">--</p>
+    </div>
+  </div>
 </body>
 </html>
